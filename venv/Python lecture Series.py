@@ -20,7 +20,7 @@ ww2_series = Series(ww2_dict) # passing dictionary to series
 # print(ww2_series)
 countries =['china','germany','japan','USA','USSR','Argentina']
 obj2 = Series(ww2_dict,index = countries)
-# print(obj2)
+print(obj2)
 # print(pd.isnull(obj2))
 # print(pd.notnull(obj2))
 # print(ww2_series +obj2)
