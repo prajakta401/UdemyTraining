@@ -5,11 +5,11 @@ from numpy.random import randn #Random is Module . Randn is method
 import pandas as pd
 from pandas import Series , DataFrame
 
-# ser1 = Series([1,2,3,4],index=['A','B','C','D'])
-# ser2 = ser1.reindex(['A','B','C','D','E','F'])
-# print(ser2)
-# ser2.reindex(['A','B','C','D','E','F','G'],fill_value=0) # this fills G = 0
-# print(ser2)
+ser1 = Series([1,2,3,4],index=['A','B','C','D'])
+ser2 = ser1.reindex(['A','B','C','D','E','F'])
+print(ser2)
+x=ser2.reindex(['A','B','C','D','E','F','G'],fill_value=0) # this fills G = 0
+print(x)
 
 # ser3 = Series(['USA','Mexico','Canada'],index=[0,5,10])
 # print(ser3)
