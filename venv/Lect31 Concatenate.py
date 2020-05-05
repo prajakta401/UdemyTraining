@@ -104,19 +104,45 @@ from pandas import Series,DataFrame
 # print(z)
 
 #Lecture 38 REnaming Indexes
-dframe = DataFrame(np.arange(12).reshape(3,4),index=['NY','LA','SF'],
-                   columns=['A','B','C','D'])
-print(dframe)
-# dframe.index = dframe.index.map(str.lower)#convert to lower case initials
+# dframe = DataFrame(np.arange(12).reshape(3,4),index=['NY','LA','SF'],
+#                    columns=['A','B','C','D'])
 # print(dframe)
-print(dframe.rename(index=str.title,columns=str.lower))
+# # dframe.index = dframe.index.map(str.lower)#convert to lower case initials
+# # print(dframe)
+# print(dframe.rename(index=str.title,columns=str.lower))
+#
+# #Lecture 39 Binning
+# years =[1969,1987,1990,1991,1992,1998,2008,2008,2012,2013,2015]
+# decade_bins=[1960,1970,1980,1990,2000,2010,2020]
+# decade_cat = pd.cut(years,decade_bins)
+# print(decade_cat)
+# print(pd.cut(years,2,precision=1))# divides years list into 2 categorues.
+# print(decade_cat.categories)
+# print(pd.value_counts(decade_cat))# give us how many years were there in that particular decade categry
 
-#Lecture 39 Binning
-years =[1969,1987,1990,1991,1992,1998,2008,2008,2012,2013,2015]
-decade_bins=[1960,1970,1980,1990,2000,2010,2020]
-decade_cat = pd.cut(years,decade_bins)
-print(decade_cat)
-print(pd.cut(years,2,precision=1))# divides years list into 2 categorues.
-print(decade_cat.categories)
-print(pd.value_counts(decade_cat))# give us how many years were there in that particular decade categry
+#Lecture 40 Outliers
+# np.random.seed(12345)
+# dframe = DataFrame(np.random.randn(1000,4))
+# print(dframe.head())
+# print(dframe.tail())
+# print(dframe.describe())
+# col = dframe[0]
+# print(col.head())
+# print(col[np.abs(col)>3])#print all the values which are >3 in that column
+# print(dframe[(np.abs(dframe)>3).any(1)])# returs eevry row in DF which had abs value > 3
+# dframe[np.abs(dframe)>3] = np.sign(dframe)*3# any value in DF where abs > 3  , set it as 3 or -3
+# print(dframe.describe())
 
+
+#Lecture 41 Permutation - Reordering
+
+dframe = DataFrame(np.arange(16).reshape(4,4))
+print(dframe)
+blender = np.random.permutation(4)# from a random 4 digit number using ( 0,1,2,3)
+print(blender)
+print(dframe.take(blender))# reorders the original DF  as per blender number sequence
+box = np.array([1,2,3])
+shaker = np.random.randint(0,len(box),size=10)# create a random array of size 10 using digits (0,1,2,3)
+print(shaker)
+hand_grab = box.take(shaker)
+print(hand_grab)
