@@ -11,7 +11,7 @@ import seaborn as sns
 
 dataset1 = randn(100)#random normal distribution dataset
 plt.hist(dataset1)#draw histogram
-# plt.show()#display the graph
+plt.show()#display the graph
 
 dataset2 = randn(80)
 plt.hist(dataset2,color='indianred')
